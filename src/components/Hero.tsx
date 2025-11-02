@@ -1,5 +1,3 @@
-// import { Package } from 'lucide-react';
-
 export default function Hero() {
   return (
     <section className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden">
@@ -11,7 +9,7 @@ export default function Hero() {
             <div className="flex items-center space-x-3">
               <div className="flex items-center space-x-2">
                 {/* <Package className="w-12 h-12 text-amber-500" strokeWidth={2} /> */}
-                <img src="/logo.png" alt="" className="w-16 h-16 rounded-full border-3 border-amber-500 p-1 bg-gradient-to-br from-amber-500/20 to-transparent backdrop-blur-sm"/>
+                <img src="/logo.png" alt="" className="w-16 h-16 rounded-full border-3 border-amber-500 p-1 bg-gradient-to-br from-amber-500/20 to-transparent backdrop-blur-sm" />
                 <div>
                   <div className="text-3xl font-bold tracking-tight">PRINT GALLERY</div>
                 </div>
