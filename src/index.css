@@ -17,11 +17,15 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-gradient-to-r from-amber-500 to-amber-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:from-amber-600 hover:to-amber-700 hover:shadow-lg hover:-translate-y-0.5;
+    @apply inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-600 text-slate-900 font-semibold px-6 py-3 rounded-lg shadow-sm hover:shadow transition-all duration-200;
   }
   
   .btn-secondary {
-    @apply border-2 border-gray-600 text-gray-700 px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:border-amber-500 hover:text-amber-500;
+    @apply inline-flex items-center justify-center gap-2 border border-slate-300 hover:border-slate-400 bg-white hover:bg-slate-50 text-slate-700 font-medium px-6 py-3 rounded-lg shadow-sm transition-all duration-200;
+  }
+  
+  .btn-dark {
+    @apply inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold px-6 py-3 rounded-lg shadow-sm transition-all duration-200;
   }
   
   .section-padding {
@@ -31,4 +35,65 @@
   .container-custom {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
+
+  .card-flat {
+    @apply bg-white border border-slate-200 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200;
+  }
+
+  .card-flat-slate {
+    @apply bg-slate-50 border border-slate-200 rounded-xl;
+  }
+
+  .grid-pattern-light {
+    background-size: 24px 24px;
+    background-image: 
+      linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  }
+
+  .blueprint-grid-light {
+    background-size: 20px 20px;
+    background-image: 
+      linear-gradient(to right, rgba(217, 119, 6, 0.08) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(217, 119, 6, 0.08) 1px, transparent 1px);
+  }
+}
+
+/* 3D Perspective CSS */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.perspective-1500 {
+  perspective: 1500px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f59e0b;
+}
+
+html {
+  scroll-behavior: smooth;
 }
