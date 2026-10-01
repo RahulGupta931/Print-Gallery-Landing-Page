@@ -11,7 +11,6 @@ import Team from './components/Team';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import { useScrollProgress } from './hooks/useMotion';
-import HeroBanner from './components/HeroBanner';
 
 function App() {
   const { progress } = useScrollProgress();
