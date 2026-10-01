@@ -32,22 +32,24 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between gap-4">
+        <div className="flex items-center justify-between gap-2 sm:gap-4">
           {/* Brand Logo & Name */}
-          <a href="#" className="flex items-center space-x-3 group shrink-0">
+          <a href="#" className="flex items-center gap-2 sm:gap-3 group shrink-0 min-w-0">
             <img
               src="/logo.png"
               alt="Print Gallery Logo"
-              className="w-10 h-10 sm:w-11 sm:h-11 rounded-lg border border-slate-200 p-0.5 bg-slate-50 object-cover shadow-sm group-hover:border-amber-500 transition-colors"
+              className="w-9 h-9 sm:w-11 sm:h-11 rounded-lg border border-slate-200 p-0.5 bg-slate-50 object-cover shadow-sm group-hover:border-amber-500 transition-colors flex-shrink-0"
             />
-          
-            <div>
-                <span className="text-xl font-black text-black tracking-tight">
-                  PRINT<span className="text-amber-500">GALLERY</span>
-                </span>
-                <p className="text-[11px] text-black font-mono">Precision Cardboard Boxes & Printing</p>
-           </div>
-           </a>
+
+            <div className="min-w-0">
+              <span className="block text-base sm:text-xl font-black text-black tracking-tight leading-none">
+                PRINT<span className="text-amber-500">GALLERY</span>
+              </span>
+              <p className="mt-0.5 text-[9px] sm:text-[11px] text-black font-mono truncate">
+                Precision Cardboard Boxes & Printing
+              </p>
+            </div>
+          </a>
 
 
           {/* Desktop Navigation */}
@@ -95,11 +97,11 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
           </div>
 
           {/* Mobile Toggle */}
-          <div className="flex lg:hidden items-center space-x-2">
+          <div className="flex lg:hidden items-center gap-2 ml-auto">
             <a
               href="#calculator"
               onClick={onOpenQuote}
-              className="sm:hidden inline-flex items-center gap-1.5 bg-amber-500 text-slate-950 font-bold text-xs px-3 py-1.5 rounded-lg shadow-sm"
+              className="inline-flex items-center gap-1.5 bg-amber-500 text-slate-950 font-bold text-[10px] sm:text-xs px-2.5 py-1.5 rounded-lg shadow-sm"
             >
               <Box className="w-3.5 h-3.5" />
               <span>Quote</span>
