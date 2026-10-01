@@ -25,7 +25,7 @@ export default function Footer() {
                 <span className="text-xl font-black text-white tracking-tight">
                   PRINT<span className="text-amber-500">GALLERY</span>
                 </span>
-                <p className="text-[11px] text-amber-400 font-mono">Precision Cardboard Boxes & Printing</p>
+                <p className="text-[11px] text-amber-500 font-mono">Precision Cardboard Boxes & Printing</p>
               </div>
             </div>
 
@@ -35,7 +35,7 @@ export default function Footer() {
 
             <div className="pt-2 flex items-center gap-3">
               <span className="inline-flex items-center gap-1.5 bg-slate-900 border border-slate-800 text-amber-300 text-[11px] font-mono px-3 py-1 rounded-full">
-                <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
+                <ShieldCheck className="w-3.5 h-3.5 text-amber-500" />
                 <span>ISO Certified Operations</span>
               </span>
               <span className="inline-flex items-center gap-1.5 bg-slate-900 border border-slate-800 text-emerald-400 text-[11px] font-mono px-3 py-1 rounded-full">
@@ -51,32 +51,32 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2">
               <li>
-                <a href="#calculator" className="hover:text-amber-400 transition-colors">
+                <a href="#calculator" className="hover:text-amber-500 transition-colors">
                   Corrugated Shipping Boxes
                 </a>
               </li>
               <li>
-                <a href="#calculator" className="hover:text-amber-400 transition-colors">
+                <a href="#calculator" className="hover:text-amber-500 transition-colors">
                   Die-Cut E-Commerce Mailers
                 </a>
               </li>
               <li>
-                <a href="#calculator" className="hover:text-amber-400 transition-colors">
+                <a href="#calculator" className="hover:text-amber-500 transition-colors">
                   Heavy-Duty 7-Ply Cartons
                 </a>
               </li>
               <li>
-                <a href="#services" className="hover:text-amber-400 transition-colors">
+                <a href="#services" className="hover:text-amber-500 transition-colors">
                   Offset Printed Monocartons
                 </a>
               </li>
               <li>
-                <a href="#services" className="hover:text-amber-400 transition-colors">
+                <a href="#services" className="hover:text-amber-500 transition-colors">
                   Self-Locking Retail Packaging
                 </a>
               </li>
               <li>
-                <a href="#services" className="hover:text-amber-400 transition-colors">
+                <a href="#services" className="hover:text-amber-500 transition-colors">
                   High-Resolution Product Labels
                 </a>
               </li>
@@ -90,32 +90,32 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2">
               <li>
-                <a href="#infrastructure" className="hover:text-amber-400 transition-colors">
+                <a href="#infrastructure" className="hover:text-amber-500 transition-colors">
                   Automated Corrugator Line
                 </a>
               </li>
               <li>
-                <a href="#infrastructure" className="hover:text-amber-400 transition-colors">
+                <a href="#infrastructure" className="hover:text-amber-500 transition-colors">
                   Flexo Board Printing
                 </a>
               </li>
               <li>
-                <a href="#infrastructure" className="hover:text-amber-400 transition-colors">
+                <a href="#infrastructure" className="hover:text-amber-500 transition-colors">
                   Platen Die-Cutting Units
                 </a>
               </li>
               <li>
-                <a href="#infrastructure" className="hover:text-amber-400 transition-colors">
+                <a href="#infrastructure" className="hover:text-amber-500 transition-colors">
                   Burst Strength Testing (BF)
                 </a>
               </li>
               <li>
-                <a href="#infrastructure" className="hover:text-amber-400 transition-colors">
+                <a href="#infrastructure" className="hover:text-amber-500 transition-colors">
                   Edge Crush Tester (ECT)
                 </a>
               </li>
               <li>
-                <a href="#design-team" className="hover:text-amber-400 transition-colors">
+                <a href="#design-team" className="hover:text-amber-500 transition-colors">
                   In-House CAD Studio
                 </a>
               </li>
@@ -129,19 +129,19 @@ export default function Footer() {
             </h4>
             <div className="space-y-2 text-xs">
               <div className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
                 <span>E-block building no. 67, Sector 63 Noida, UP</span>
               </div>
               <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-amber-400 flex-shrink-0" />
+                <Phone className="w-4 h-4 text-amber-500 flex-shrink-0" />
                 <a href="tel:+919810466405" className="hover:text-white">+91 9810466405</a>
               </div>
               <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-amber-400 flex-shrink-0" />
+                <Phone className="w-4 h-4 text-amber-500 flex-shrink-0" />
                 <a href="tel:+917011727274" className="hover:text-white">+91 7011727274</a>
               </div>
               <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-amber-400 flex-shrink-0" />
+                <Mail className="w-4 h-4 text-amber-500 flex-shrink-0" />
                 <a href="mailto:printgallery17@gmail.com" className="hover:text-white">printgallery17@gmail.com</a>
               </div>
             </div>

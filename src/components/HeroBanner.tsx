@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
-import { ArrowRight, Phone, ShieldCheck, Leaf, Settings, Handshake } from 'lucide-react';
+import { ShieldCheck, Leaf, Settings, Handshake } from 'lucide-react';
 
-const BANNERS = ['/heroBanner1.jpg', '/herobanner2.jpg'];
+const banner = '/banner1.jpg';
+const banner1 = '/banner.jpg';
+
+const BANNERS = [banner, banner1];
 
 const CATEGORIES = ['Corrugated boxes', 'Paper rolls', 'Packaging solutions'];
 
@@ -28,6 +31,11 @@ export default function Hero() {
     <section
       id="hero"
       className="relative isolate flex flex-col overflow-hidden bg-white text-slate-800 pt-28 lg:pt-36"
+      style={{
+        backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.52), rgba(15, 23, 42, 0.62)), url('${BANNERS[index]}')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
     >
       {/* Banner photos (crossfade) */}
       <div className="absolute inset-0 -z-20" aria-hidden="true">
@@ -44,52 +52,48 @@ export default function Hero() {
         ))}
       </div>
 
-      {/* Warm white fade so the left side stays clean and readable */}
-      <div className="absolute inset-0 -z-10 bg-white/70 lg:bg-transparent" aria-hidden="true" />
-      <div
-        className="absolute inset-0 -z-10 bg-gradient-to-r from-white from-10% via-white/85 via-40% to-transparent to-75%"
-        aria-hidden="true"
-      />
+      {/* Full image banner */}
+      <div className="absolute inset-0 bg-slate-950/25" aria-hidden="true" />
 
       {/* Content */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-16 lg:pb-24">
-        <div className="max-w-2xl">
-          <ul className="flex flex-wrap items-center gap-y-1 text-[11px] sm:text-xs font-medium uppercase tracking-[0.2em] text-slate-600">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pb-16 lg:pb-24">
+        <div className="mx-auto max-w-3xl text-center lg:text-center">
+          <ul className="flex flex-wrap items-center justify-center gap-y-1 text-[11px] sm:text-xs font-medium uppercase tracking-[0.2em] text-white/90">
             {CATEGORIES.map((c, i) => (
-              <li key={c} className="flex items-center">
-                {i > 0 && <span className="mx-3 h-3 w-px bg-slate-400" aria-hidden="true" />}
+              <li key={c} className="flex items-center justify-center">
+                {i > 0 && <span className="mx-3 h-3 w-px bg-white/60" aria-hidden="true" />}
                 {c}
               </li>
             ))}
           </ul>
 
-          <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] text-slate-800">
+          <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] text-white drop-shadow-md">
             Strong Packaging
             <br />
-            for a <span className="text-[#9c6a32]">Better Tomorrow</span>
+            for a <span className="text-amber-500">Better Tomorrow</span>
           </h1>
 
-          <p className="mt-6 max-w-lg text-base sm:text-lg leading-relaxed text-slate-600">
+          <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-slate-100">
             We supply high-quality corrugated boxes and paper rolls for businesses that value
             strength, reliability and sustainable packaging solutions.
           </p>
 
-          <div className="mt-8 flex flex-wrap items-center gap-4">
-            <a
+          {/* <div className="mt-8 flex flex-wrap items-center gap-4"> */}
+            {/* <a
               href="#contact"
               className="inline-flex items-center gap-2 rounded-full bg-[#9c6a32] px-7 py-3.5 text-sm font-semibold text-white shadow-md shadow-[#9c6a32]/30 transition-colors hover:bg-[#845729] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#9c6a32] focus-visible:ring-offset-2"
             >
               <span>Get a Quote</span>
               <ArrowRight className="h-4 w-4" />
-            </a>
-            <a
+            </a> */}
+            {/* <a
               href="tel:+919810466405"
               className="inline-flex items-center gap-2 rounded-full px-3 py-3 text-sm font-semibold text-slate-700 transition-colors hover:text-[#9c6a32] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#9c6a32]"
             >
               <Phone className="h-4 w-4 text-[#9c6a32]" />
               <span>Call factory sales</span>
-            </a>
-          </div>
+            </a> */}
+          {/* </div> */}
         </div>
       </div>
 

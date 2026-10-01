@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Phone, ArrowRight, Menu, X, Box, MessageCircle } from 'lucide-react';
+import { Phone, ArrowRight, Menu, X, MessageCircle } from 'lucide-react';
 
 interface NavbarProps {
   onOpenQuote?: () => void;

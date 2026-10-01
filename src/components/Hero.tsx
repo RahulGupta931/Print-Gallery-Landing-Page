@@ -81,7 +81,7 @@ export default function Hero() {
           <ul className="mt-7 flex flex-wrap gap-x-6 gap-y-2.5">
             {HIGHLIGHTS.map((item) => (
               <li key={item} className="flex items-center gap-2 text-sm font-medium text-slate-100">
-                <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-amber-400" />
+                <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-amber-500" />
                 <span>{item}</span>
               </li>
             ))}
@@ -106,7 +106,7 @@ export default function Hero() {
               href="tel:+919810466405"
               className="inline-flex items-center gap-2 rounded-lg px-3 py-3 text-sm font-semibold text-slate-100 transition-colors hover:text-amber-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300"
             >
-              <Phone className="h-4 w-4 text-amber-400" />
+              <Phone className="h-4 w-4 text-amber-500" />
               <span>Call factory sales</span>
             </a>
           </div>

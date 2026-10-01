@@ -156,7 +156,7 @@ export default function GraphicDesignTeam() {
         {/* Experience Banner */}
         <div className="bg-slate-900 text-white rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
           <div className="space-y-2 text-center md:text-left">
-            <div className="flex items-center justify-center md:justify-start gap-1.5 text-amber-400 text-xs font-bold uppercase tracking-wider">
+            <div className="flex items-center justify-center md:justify-start gap-1.5 text-amber-500 text-xs font-bold uppercase tracking-wider">
               <Star className="w-4 h-4 fill-amber-400" />
               <span>Design Excellence</span>
             </div>
@@ -167,7 +167,7 @@ export default function GraphicDesignTeam() {
 
           <div className="flex items-center gap-6 flex-shrink-0 text-center">
             <div>
-              <div className="text-2xl font-black text-amber-400">15+</div>
+              <div className="text-2xl font-black text-amber-500">15+</div>
               <div className="text-xs text-slate-400">Years Experience</div>
             </div>
             <div className="w-px h-10 bg-slate-700" />
