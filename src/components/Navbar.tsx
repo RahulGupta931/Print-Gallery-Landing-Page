@@ -40,10 +40,15 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
               alt="Print Gallery Logo"
               className="w-10 h-10 sm:w-11 sm:h-11 rounded-lg border border-slate-200 p-0.5 bg-slate-50 object-cover shadow-sm group-hover:border-amber-500 transition-colors"
             />
-            <span className="text-lg sm:text-xl font-black tracking-tight text-slate-900 group-hover:text-amber-600 transition-colors">
-              PRINT GALLERY
-            </span>
-          </a>
+          
+            <div>
+                <span className="text-xl font-black text-black tracking-tight">
+                  PRINT<span className="text-amber-500">GALLERY</span>
+                </span>
+                <p className="text-[11px] text-black font-mono">Precision Cardboard Boxes & Printing</p>
+           </div>
+           </a>
+
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-1">
@@ -83,7 +88,7 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
               onClick={onOpenQuote}
               className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-xs sm:text-sm px-4 py-2.5 rounded-lg shadow-sm hover:shadow transition-all"
             >
-              <Box className="w-4 h-4 text-slate-950" />
+              {/* <Box className="w-4 h-4 text-slate-950" /> */}
               <span>Instant Quote</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </a>

@@ -23,7 +23,7 @@ export default function Footer() {
               />
               <div>
                 <span className="text-xl font-black text-white tracking-tight">
-                  PRINT<span className="text-amber-500">GALLERY</span> Ltd
+                  PRINT<span className="text-amber-500">GALLERY</span>
                 </span>
                 <p className="text-[11px] text-amber-400 font-mono">Precision Cardboard Boxes & Printing</p>
               </div>

@@ -11,6 +11,7 @@ import Team from './components/Team';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import { useScrollProgress } from './hooks/useMotion';
+import HeroBanner from './components/HeroBanner';
 
 function App() {
   const { progress } = useScrollProgress();
@@ -67,7 +68,7 @@ function App() {
 
         {/* About */}
         <About />
-        
+
         <div className="border-b border-slate-200 bg-slate-950 text-white">
         <div className="overflow-hidden">
           <div className="marquee-track flex items-center gap-8 whitespace-nowrap py-3 px-6 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.28em] text-slate-300">

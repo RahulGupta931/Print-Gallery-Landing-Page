@@ -64,9 +64,9 @@ export default function Hero() {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
-          <p className="border-l-4 border-amber-500 pl-3 text-sm font-medium text-slate-200">
+          {/* <p className="border-l-4 border-amber-500 pl-3 text-sm font-medium text-slate-200">
             Print Gallery · Corrugated packaging manufacturer, Noida
-          </p>
+          </p> */}
 
           <h1 className="mt-6 text-4xl sm:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight leading-[1.08]">
             High quality printing and packaging, made to your specification
