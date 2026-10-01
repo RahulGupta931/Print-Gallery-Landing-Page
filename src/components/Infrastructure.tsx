@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { 
-  Factory, 
   CheckCircle2, 
   FlaskConical, 
   Cpu, 
@@ -18,7 +17,7 @@ export default function Infrastructure() {
     {
       title: 'Continuous High-Speed Corrugation Line',
       desc: 'Complete corrugated board manufacturing line with precision heating rolls, automatic reel stands, and slitter scorer for 3-ply, 5-ply, and 7-ply board.',
-      capacity: '50,000+ cartons / day',
+      capacity: '2000+ cartons / day',
       image: '/m1.png',
       features: ['Automated flute sync (B, C, E, BC)', 'Inline rotary sheer cutter', 'Steam-heated curing plates'],
     },
@@ -92,10 +91,10 @@ export default function Infrastructure() {
         <div className={`text-center max-w-3xl mx-auto mb-12 transition-all duration-700 ${
           isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <div className="inline-flex items-center gap-2 bg-amber-100 border border-amber-200 text-amber-800 px-3.5 py-1.5 rounded-full text-xs font-semibold mb-3">
+          {/* <div className="inline-flex items-center gap-2 bg-amber-100 border border-amber-200 text-amber-800 px-3.5 py-1.5 rounded-full text-xs font-semibold mb-3">
             <Factory className="w-3.5 h-3.5 text-amber-600" />
             <span>Industrial Infrastructure</span>
-          </div>
+          </div> */}
           <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-slate-900 mb-3">
             Manufacturing Machinery & Quality Testing Lab
           </h2>

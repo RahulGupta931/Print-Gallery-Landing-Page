@@ -1,4 +1,4 @@
-import { Leaf, Recycle, TreePine, Droplets, ShieldCheck, ArrowRight } from 'lucide-react';
+import { Recycle, TreePine, Droplets, ShieldCheck, ArrowRight } from 'lucide-react';
 import { useInView } from '../hooks/useMotion';
 
 export default function Sustainability() {
@@ -39,10 +39,10 @@ export default function Sustainability() {
         <div className={`text-center max-w-3xl mx-auto mb-14 transition-all duration-700 ${
           isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <div className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 text-emerald-800 px-3.5 py-1.5 rounded-full text-xs font-semibold mb-3">
+          {/* <div className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 text-emerald-800 px-3.5 py-1.5 rounded-full text-xs font-semibold mb-3">
             <Leaf className="w-3.5 h-3.5 text-emerald-600" />
             <span>Sustainable & Circular Packaging</span>
-          </div>
+          </div> */}
           <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-slate-900 mb-3">
             Committed to Eco-Friendly Cardboard Solutions
           </h2>

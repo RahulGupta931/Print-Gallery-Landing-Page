@@ -30,8 +30,78 @@ function App() {
       <main>
         <Hero />
 
+        <div className="border-b border-slate-200 bg-slate-950 text-white">
+        <div className="overflow-hidden">
+          <div className="marquee-track flex items-center gap-8 whitespace-nowrap py-3 px-6 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.28em] text-slate-300">
+            {[
+              'Factory Direct Pricing',
+              'Custom Box Design',
+              'Noida Sector 63',
+              'Fast RFQ Response',
+              'Eco Packaging',
+              'Bulk Dispatch',
+              'Warehouse & Logistics Support'
+            ].map((item, idx) => (
+              <span key={idx} className="inline-flex items-center gap-3">
+                <span className="h-1.5 w-1.5 rounded-full bg-amber-500" />
+                <span>{item}</span>
+              </span>
+            ))}
+            {[
+              'Factory Direct Pricing',
+              'Custom Box Design',
+              'Noida Sector 63',
+              'Fast RFQ Response',
+              'Eco Packaging',
+              'Bulk Dispatch',
+              'Warehouse & Logistics Support'
+            ].map((item, idx) => (
+              <span key={`repeat-${idx}`} className="inline-flex items-center gap-3">
+                <span className="h-1.5 w-1.5 rounded-full bg-amber-500" />
+                <span>{item}</span>
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+
         {/* About */}
         <About />
+        
+        <div className="border-b border-slate-200 bg-slate-950 text-white">
+        <div className="overflow-hidden">
+          <div className="marquee-track flex items-center gap-8 whitespace-nowrap py-3 px-6 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.28em] text-slate-300">
+            {[
+              'Factory Direct Pricing',
+              'Custom Box Design',
+              'Noida Sector 63',
+              'Fast RFQ Response',
+              'Eco Packaging',
+              'Bulk Dispatch',
+              'Warehouse & Logistics Support'
+            ].map((item, idx) => (
+              <span key={idx} className="inline-flex items-center gap-3">
+                <span className="h-1.5 w-1.5 rounded-full bg-amber-500" />
+                <span>{item}</span>
+              </span>
+            ))}
+            {[
+              'Factory Direct Pricing',
+              'Custom Box Design',
+              'Noida Sector 63',
+              'Fast RFQ Response',
+              'Eco Packaging',
+              'Bulk Dispatch',
+              'Warehouse & Logistics Support'
+            ].map((item, idx) => (
+              <span key={`repeat-${idx}`} className="inline-flex items-center gap-3">
+                <span className="h-1.5 w-1.5 rounded-full bg-amber-500" />
+                <span>{item}</span>
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
 
         {/* Services & Capabilities */}
         <Services />

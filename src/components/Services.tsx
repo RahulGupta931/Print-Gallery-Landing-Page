@@ -6,8 +6,7 @@ import {
   Leaf, 
   Scissors, 
   ArrowRight, 
-  Check, 
-  Layers
+  Check
 } from 'lucide-react';
 import { useInView } from '../hooks/useMotion';
 
@@ -85,10 +84,10 @@ export default function Services() {
         <div className={`text-center max-w-3xl mx-auto mb-14 transition-all duration-700 ${
           isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <div className="inline-flex items-center gap-2 bg-amber-50 border border-amber-200 text-amber-800 px-3.5 py-1.5 rounded-full text-xs font-semibold mb-3">
+          {/* <div className="inline-flex items-center gap-2 bg-amber-50 border border-amber-200 text-amber-800 px-3.5 py-1.5 rounded-full text-xs font-semibold mb-3">
             <Layers className="w-3.5 h-3.5 text-amber-600" />
             <span>Industrial Packaging Solutions</span>
-          </div>
+          </div> */}
           <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-slate-900 mb-3">
             Our Printing & Packaging Services
           </h2>

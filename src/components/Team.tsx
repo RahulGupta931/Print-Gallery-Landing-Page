@@ -1,4 +1,4 @@
-import { Users, Palette, Warehouse } from 'lucide-react';
+import { Palette, Warehouse } from 'lucide-react';
 import { useInView } from '../hooks/useMotion';
 
 export default function Team() {
@@ -13,10 +13,10 @@ export default function Team() {
           <div className={`lg:col-span-6 space-y-5 transition-all duration-700 ${
             isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
-            <div className="inline-flex items-center gap-2 bg-amber-50 border border-amber-200 text-amber-800 px-3.5 py-1.5 rounded-full text-xs font-semibold">
+            {/* <div className="inline-flex items-center gap-2 bg-amber-50 border border-amber-200 text-amber-800 px-3.5 py-1.5 rounded-full text-xs font-semibold">
               <Users className="w-3.5 h-3.5 text-amber-600" />
               <span>Experienced Team</span>
-            </div>
+            </div> */}
 
             <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-slate-900">
               Dedicated Professionals Committed to Quality

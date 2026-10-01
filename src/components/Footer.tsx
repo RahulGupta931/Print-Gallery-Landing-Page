@@ -152,7 +152,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-14 pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-slate-500 text-xs text-center sm:text-left">
-            © {new Date().getFullYear()} PRINT GALLERY Ltd. All rights reserved. Leading provider of corrugated cardboard packaging and printing services.
+            © {new Date().getFullYear()} PRINT GALLERY. All rights reserved. Leading provider of corrugated cardboard packaging and printing services.
           </p>
 
           <button

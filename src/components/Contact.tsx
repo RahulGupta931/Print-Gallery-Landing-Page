@@ -7,8 +7,7 @@ import {
   Clock, 
   Send, 
   CheckCircle2, 
-  ShieldCheck,
-  Building2
+  ShieldCheck
 } from 'lucide-react';
 import { useInView } from '../hooks/useMotion';
 
@@ -42,7 +41,7 @@ export default function Contact() {
 
   const whatsappMessage = encodeURIComponent(
     [
-      'Hello PRINT GALLERY Ltd, I would like a packaging quote.',
+      'Hello PRINT GALLERY, I would like a packaging quote.',
       formData.name ? `Name: ${formData.name}` : '',
       formData.company ? `Company: ${formData.company}` : '',
       formData.packagingType ? `Category: ${formData.packagingType}` : '',
@@ -64,10 +63,10 @@ export default function Contact() {
         <div className={`text-center max-w-3xl mx-auto mb-10 transition-all duration-700 ${
           isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <div className="inline-flex items-center gap-2 bg-amber-100 border border-amber-200 text-amber-800 px-3.5 py-1.5 rounded-full text-xs font-semibold mb-3">
+          {/* <div className="inline-flex items-center gap-2 bg-amber-100 border border-amber-200 text-amber-800 px-3.5 py-1.5 rounded-full text-xs font-semibold mb-3">
             <Building2 className="w-3.5 h-3.5 text-amber-600" />
             <span>Noida Plant & Head Office</span>
-          </div>
+          </div> */}
           <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-slate-900 mb-3">
             Get In <span className="text-amber-600">Touch</span>
           </h2>
@@ -119,7 +118,7 @@ export default function Contact() {
           </a>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-8 items-start">
+        <div className="grid lg:grid-cols-12 gap-8 items-stretch">
           
           <div className="lg:col-span-7 bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm">
             {submitted ? (
@@ -336,7 +335,7 @@ export default function Contact() {
                   className="w-12 h-12 rounded-lg border border-slate-200 p-0.5 bg-slate-50 object-cover"
                 />
                 <div>
-                  <h3 className="text-lg font-black text-slate-900">PRINT GALLERY Ltd</h3>
+                  <h3 className="text-lg font-black text-slate-900">PRINT GALLERY</h3>
                   <p className="text-xs text-slate-500">Printing & Packaging Services</p>
                 </div>
               </div>
@@ -349,7 +348,8 @@ export default function Contact() {
                   <div>
                     <h4 className="text-xs font-bold uppercase text-slate-500">Address</h4>
                     <p className="text-xs sm:text-sm text-slate-800 font-medium mt-0.5 leading-relaxed">
-                      E-block buliding number-67,<br />
+                      E-block buliding number-67,
+                      {/* <br /> */}
                       Sector 63 Noida, Uttar Pradesh
                     </p>
                   </div>
@@ -363,11 +363,11 @@ export default function Contact() {
                     <h4 className="text-xs font-bold uppercase text-slate-500">Phone</h4>
                     <div className="mt-0.5 space-y-0.5">
                       <a href="tel:+919810466405" className="text-xs sm:text-sm text-slate-800 hover:text-amber-600 font-bold block">
-                        +91 9810466405
+                        +91 9810466405, +91 7011727274
                       </a>
-                      <a href="tel:+917011727274" className="text-xs sm:text-sm text-slate-800 hover:text-amber-600 font-bold block">
+                      {/* <a href="tel:+917011727274" className="text-xs sm:text-sm text-slate-800 hover:text-amber-600 font-bold block">
                         +91 7011727274
-                      </a>
+                      </a> */}
                     </div>
                   </div>
                 </div>
@@ -378,7 +378,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="text-xs font-bold uppercase text-slate-500">Website</h4>
-                    <span className="text-xs sm:text-sm text-slate-800 font-medium">www.print-gallery.com</span>
+                    <span className="text-xs sm:text-sm text-slate-800 font-medium">www.printgallerys.com</span>
                   </div>
                 </div>
               </div>
@@ -398,11 +398,11 @@ export default function Contact() {
               <div className="space-y-1 text-xs text-slate-600 border-t border-slate-100 pt-2">
                 <div className="flex justify-between">
                   <span>Monday - Friday:</span>
-                  <span className="font-semibold text-slate-900">9:00 AM - 6:00 PM</span>
+                  <span className="font-semibold text-slate-900">9:00 AM - 5:30 PM</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Saturday:</span>
-                  <span className="font-semibold text-slate-900">9:00 AM - 6:00 PM</span>
+                  <span className="font-semibold text-slate-900">9:00 AM - 5:30 PM</span>
                 </div>
                 <div className="flex justify-between text-slate-400">
                   <span>Sunday:</span>
@@ -413,7 +413,8 @@ export default function Contact() {
 
             <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm h-60 bg-white">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.189667176008!2d77.38403087550276!3d28.624077084464503!2m3!1f0!2f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cef594fb04257%3A0xb964b405fd07d087!2sPrint%20Gallery!5e0!3m2!1sen!2sin!4v1762100769118!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.188282750929!2d77.38374577550275!3d28.624118584462703!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cef594fb04257%3A0xb964b405fd07d087!2sPrint%20Gallery!5e0!3m2!1sen!2sin!4v1790852020270!5m2!1sen!2sin"
+                // src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.189667176008!2d77.38403087550276!3d28.624077084464503!2m3!1f0!2f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cef594fb04257%3A0xb964b405fd07d087!2sPrint%20Gallery!5e0!3m2!1sen!2sin!4v1762100769118!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

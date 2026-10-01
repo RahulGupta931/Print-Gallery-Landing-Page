@@ -1,4 +1,4 @@
-import { Target, Eye, ShieldCheck, Award, Factory, Cpu, CheckCircle2 } from 'lucide-react';
+import { ShieldCheck, Award, Factory, Cpu, CheckCircle2 } from 'lucide-react';
 import { useInView } from '../hooks/useMotion';
 
 export default function About() {
@@ -15,17 +15,17 @@ export default function About() {
           
           {/* Left: About Us Company Narrative */}
           <div className="lg:col-span-6 space-y-5">
-            <div className="inline-flex items-center gap-2 bg-amber-100 border border-amber-200 text-amber-800 px-3.5 py-1.5 rounded-full text-xs font-semibold">
+            {/* <div className="inline-flex items-center gap-2 bg-amber-100 border border-amber-200 text-amber-800 px-3.5 py-1.5 rounded-full text-xs font-semibold">
               <Factory className="w-3.5 h-3.5 text-amber-600" />
-              <span>About PRINT GALLERY Ltd</span>
-            </div>
-            
+              <span>About PRINT GALLERY</span>
+            </div> */}
+          
             <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-slate-900">
               Leading Provider of High Quality Printing & Packaging Services
             </h2>
             
             <p className="text-slate-600 text-base leading-relaxed">
-              <strong className="text-slate-900 font-bold">PRINT GALLERY Ltd</strong> is a leading provider of high quality printing and packaging services. Our company has set a reputation for delivering innovative and sustainable packaging solutions to clients across various industries.
+              <strong className="text-slate-900 font-bold">PRINT GALLERY</strong> is a leading provider of high quality printing and packaging services. Our company has set a reputation for delivering innovative and sustainable packaging solutions to clients across various industries.
             </p>
 
             <p className="text-slate-600 text-base leading-relaxed">
@@ -58,9 +58,9 @@ export default function About() {
             {/* Vision Card */}
             <div className="bg-white border-2 border-amber-500 rounded-2xl p-7 shadow-sm">
               <div className="flex items-center space-x-3 mb-3">
-                <div className="bg-amber-100 text-amber-700 p-2.5 rounded-lg">
+                {/* <div className="bg-amber-100 text-amber-700 p-2.5 rounded-lg">
                   <Eye className="w-6 h-6" />
-                </div>
+                </div> */}
                 <div>
                   <span className="text-xs uppercase tracking-wider font-bold text-amber-700">OUR ASPIRATION</span>
                   <h3 className="text-2xl font-black text-slate-900">OUR VISION</h3>
@@ -74,9 +74,9 @@ export default function About() {
             {/* Mission Card */}
             <div className="bg-white border border-slate-200 rounded-2xl p-7 shadow-sm space-y-3">
               <div className="flex items-center space-x-3 mb-2">
-                <div className="bg-slate-100 text-slate-800 p-2.5 rounded-lg">
+                {/* <div className="bg-slate-100 text-slate-800 p-2.5 rounded-lg">
                   <Target className="w-6 h-6" />
-                </div>
+                </div> */}
                 <div>
                   <span className="text-xs uppercase tracking-wider font-bold text-slate-500">HOW WE DELIVER</span>
                   <h3 className="text-2xl font-black text-slate-900">OUR MISSION</h3>
@@ -106,7 +106,7 @@ export default function About() {
         {/* 4 Flat Badges */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {[
-            { icon: Factory, title: '50k Daily Capacity', desc: 'Continuous automated corrugation lines operating in Noida Sec 63.' },
+            { icon: Factory, title: '2k Daily Capacity', desc: 'Continuous automated corrugation lines operating in Noida Sec 63.' },
             { icon: ShieldCheck, title: '8+ QC Tests', desc: 'Calibrated laboratory testing for Burst Factor, ECT, and Cobb water sizing.' },
             { icon: Award, title: '15+ Years Trust', desc: 'Over a decade and a half delivering excellence to leading industries.' },
             { icon: Cpu, title: 'CAD Prototyping', desc: 'Precision structural box mockups and samples cut within 24 hours.' },

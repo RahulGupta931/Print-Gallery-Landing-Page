@@ -41,7 +41,7 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
               className="w-10 h-10 sm:w-11 sm:h-11 rounded-lg border border-slate-200 p-0.5 bg-slate-50 object-cover shadow-sm group-hover:border-amber-500 transition-colors"
             />
             <span className="text-lg sm:text-xl font-black tracking-tight text-slate-900 group-hover:text-amber-600 transition-colors">
-              PRINT GALLERY <span className="text-amber-600 font-bold">LTD</span>
+              PRINT GALLERY
             </span>
           </a>
 
@@ -79,7 +79,7 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
             </a>
 
             <a
-              href="#calculator"
+              href="#contact"
               onClick={onOpenQuote}
               className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-xs sm:text-sm px-4 py-2.5 rounded-lg shadow-sm hover:shadow transition-all"
             >

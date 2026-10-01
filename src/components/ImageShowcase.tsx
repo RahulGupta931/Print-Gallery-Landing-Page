@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { X, ZoomIn, Box, ArrowRight, Check } from 'lucide-react';
+import { X, ZoomIn, ArrowRight, Check } from 'lucide-react';
 import { useInView } from '../hooks/useMotion';
 
 interface ShowcaseItem {
@@ -65,7 +65,7 @@ const showcaseItems: ShowcaseItem[] = [
     subtitle: 'Automated Slitting & Inline Folding',
     src: '/m1.png',
     description: 'Continuous corrugator plant run delivering tens of thousands of uniform cartons daily with automated strapping and palletizing.',
-    specs: ['50,000+ Daily Capacity', 'Laser-guided Slitting', 'Automated Quality Scanners', 'Rapid Dispatch Logistics'],
+    specs: ['2000+ Daily Capacity', 'Laser-guided Slitting', 'Automated Quality Scanners', 'Rapid Dispatch Logistics'],
   },
 ];
 
@@ -88,10 +88,10 @@ export default function ImageShowcase() {
         <div className={`text-center max-w-3xl mx-auto mb-12 transition-all duration-700 ${
           isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <div className="inline-flex items-center gap-2 bg-amber-100 border border-amber-200 text-amber-800 px-3.5 py-1.5 rounded-full text-xs font-semibold mb-3">
+          {/* <div className="inline-flex items-center gap-2 bg-amber-100 border border-amber-200 text-amber-800 px-3.5 py-1.5 rounded-full text-xs font-semibold mb-3">
             <Box className="w-3.5 h-3.5 text-amber-600" />
             <span>Product Gallery</span>
-          </div>
+          </div> */}
           <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-slate-900 mb-3">
             Manufactured Packaging Portfolio
           </h2>

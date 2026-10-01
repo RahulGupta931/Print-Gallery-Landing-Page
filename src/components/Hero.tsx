@@ -1,270 +1,143 @@
-import { useState } from 'react';
-import { useScrollProgress, useMouseTilt } from '../hooks/useMotion';
-import { 
-  ShieldCheck, 
-  ArrowRight, 
-  CheckCircle2, 
-  Package,
-  Phone,
-  Factory
-} from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { ArrowRight, CheckCircle2, Phone, Factory } from 'lucide-react';
+
+const BANNERS = [
+  { src: '/heroBanner1.jpg', alt: 'Corrugated cartons on the Print Gallery production floor' },
+  { src: '/herobanner2.jpg', alt: 'Printed packaging manufactured by Print Gallery' },
+];
+
+const HIGHLIGHTS = [
+  '3, 5 & 7-ply heavy cartons',
+  'Die-cut e-commerce mailers',
+  '100% recyclable kraft paper',
+];
+
+const STATS = [
+  { value: '15+', label: 'Years in packaging' },
+  { value: '2,000+', label: 'Boxes per day' },
+  { value: '8+', label: 'In-house QC tests' },
+  { value: '100%', label: 'Recyclable material' },
+];
+
+const SLIDE_MS = 5000;
 
 export default function Hero() {
-  const { scrollY } = useScrollProgress();
-  const { tilt, handleMouseMove, handleMouseEnter, handleMouseLeave } = useMouseTilt(10);
-  const [activeView, setActiveView] = useState<'real' | 'all' | '3d'>('real');
+  const [index, setIndex] = useState(0);
 
-  // Parallax subtle offset for clean flat look
-  const parallaxOffset = Math.min(scrollY * 0.12, 50);
+  useEffect(() => {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) return;
+    const id = setInterval(() => setIndex((i) => (i + 1) % BANNERS.length), SLIDE_MS);
+    return () => clearInterval(id);
+  }, []);
 
   return (
-    <section 
+    <section
       id="hero"
-      className="relative pt-24 pb-16 lg:pt-32 lg:pb-24 bg-gradient-to-b from-slate-50 via-white to-slate-50 text-slate-900 border-b border-slate-200 overflow-hidden"
-      onMouseMove={handleMouseMove}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      className="relative isolate overflow-hidden bg-slate-950 text-white pt-28 pb-10 lg:pt-40 lg:pb-14"
     >
-      {/* Light subtle grid pattern */}
-      <div className="absolute inset-0 grid-pattern-light opacity-50 pointer-events-none" />
+      {/* Crossfading banner photos */}
+      <div className="absolute inset-0 -z-20" aria-hidden="true">
+        {BANNERS.map((b, i) => (
+          <img
+            key={b.src}
+            src={b.src}
+            alt=""
+            loading={i === 0 ? 'eager' : 'lazy'}
+            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
+              i === index ? 'opacity-100' : 'opacity-0'
+            }`}
+          />
+        ))}
+      </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-12 items-center">
-          
-          {/* Left Column: Corporate Brand Intro */}
-          <div className="lg:col-span-7 space-y-6">
-            
-            {/* Industry Badge */}
-            <div className="inline-flex items-center gap-2 bg-amber-50 border border-amber-200 px-3.5 py-1.5 rounded-full text-xs font-semibold text-amber-900">
-              <span className="w-2 h-2 rounded-full bg-amber-500 inline-block animate-pulse" />
-              <span>Leading Cardboard Box Manufacturer • Noida, NCR</span>
-            </div>
+      {/* Navy overlays keep text readable on any photo */}
+      <div className="absolute inset-0 -z-10 bg-slate-950/50 lg:bg-transparent" aria-hidden="true" />
+      <div
+        className="absolute inset-0 -z-10 bg-gradient-to-r from-slate-950/95 via-slate-950/75 to-slate-950/25"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute inset-x-0 bottom-0 h-40 -z-10 bg-gradient-to-t from-slate-950/80 to-transparent"
+        aria-hidden="true"
+      />
 
-            {/* Main Headline */}
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
-              Leading Provider of High Quality{' '}
-              <span className="text-amber-600 underline decoration-amber-300 decoration-4 underline-offset-4">
-                Printing & Packaging
-              </span>{' '}
-              Services
-            </h1>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-2xl">
+          <p className="border-l-4 border-amber-500 pl-3 text-sm font-medium text-slate-200">
+            Print Gallery · Corrugated packaging manufacturer, Noida
+          </p>
 
-            {/* Exact Company Description */}
-            <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl">
-              <strong className="text-slate-900 font-bold">PRINT GALLERY Ltd</strong> has set a trusted reputation for delivering innovative and sustainable packaging solutions to clients across diverse industries. Our commitment to excellence, combined with state-of-the-art technology, ensures that we meet and exceed our customers' expectations.
-            </p>
+          <h1 className="mt-6 text-4xl sm:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight leading-[1.08]">
+            High quality printing and packaging, made to your specification
+          </h1>
 
-            {/* Flat Corporate Value Badges */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-1 text-xs sm:text-sm text-slate-700 font-medium">
-              <div className="flex items-center gap-2 bg-white border border-slate-200 p-2.5 rounded-lg shadow-sm">
-                <CheckCircle2 className="w-4 h-4 text-amber-600 flex-shrink-0" />
-                <span>3, 5 & 7-Ply Heavy Cartons</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white border border-slate-200 p-2.5 rounded-lg shadow-sm">
-                <CheckCircle2 className="w-4 h-4 text-amber-600 flex-shrink-0" />
-                <span>Die-Cut E-commerce Mailers</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white border border-slate-200 p-2.5 rounded-lg shadow-sm">
-                <CheckCircle2 className="w-4 h-4 text-amber-600 flex-shrink-0" />
-                <span>100% Recyclable Kraft Paper</span>
-              </div>
-            </div>
+          <p className="mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-slate-200">
+            Print Gallery supplies innovative, sustainable packaging to businesses across industries.
+            Modern machinery and strict in-house testing keep every order consistent from the first
+            box to the ten-thousandth.
+          </p>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-wrap items-center gap-3.5 pt-2">
-              <a
-                href="#contact"
-                className="btn-primary"
-              >
-                <span>Get an Instant Quote</span>
-                <ArrowRight className="w-4 h-4" />
-              </a>
+          <ul className="mt-7 flex flex-wrap gap-x-6 gap-y-2.5">
+            {HIGHLIGHTS.map((item) => (
+              <li key={item} className="flex items-center gap-2 text-sm font-medium text-slate-100">
+                <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-amber-400" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
 
-              <a
-                href="#infrastructure"
-                className="btn-secondary"
-              >
-                <Factory className="w-4 h-4 text-slate-700" />
-                <span>View Machinery & Lab</span>
-              </a>
-
-              <a
-                href="tel:+919810466405"
-                className="inline-flex items-center gap-2 text-xs font-bold text-slate-700 hover:text-amber-600 px-3 py-3 rounded-lg hover:bg-slate-100 transition-colors"
-              >
-                <Phone className="w-4 h-4 text-amber-600" />
-                <span>Call Factory Sales</span>
-              </a>
-            </div>
-
-            {/* Metric Stat Cards (Flat Style) */}
-            <div className="pt-6 border-t border-slate-200 grid grid-cols-2 sm:grid-cols-4 gap-4">
-              <div className="bg-white border border-slate-200 p-3 rounded-xl shadow-sm">
-                <div className="text-2xl font-black text-slate-900 tracking-tight">15+</div>
-                <div className="text-xs text-slate-500 font-medium">Years in Packaging</div>
-              </div>
-              <div className="bg-white border border-slate-200 p-3 rounded-xl shadow-sm">
-                <div className="text-2xl font-black text-amber-600 tracking-tight">50,000+</div>
-                <div className="text-xs text-slate-500 font-medium">Daily Box Capacity</div>
-              </div>
-              <div className="bg-white border border-slate-200 p-3 rounded-xl shadow-sm">
-                <div className="text-2xl font-black text-slate-900 tracking-tight">8+ Tests</div>
-                <div className="text-xs text-slate-500 font-medium">In-House QC Lab</div>
-              </div>
-              <div className="bg-white border border-slate-200 p-3 rounded-xl shadow-sm">
-                <div className="text-2xl font-black text-emerald-600 tracking-tight">100%</div>
-                <div className="text-xs text-slate-500 font-medium">Eco Recyclable</div>
-              </div>
-            </div>
-
-          </div>
-
-          {/* Right Column: Visual Product Showcase */}
-          <div className="lg:col-span-5 relative">
-            
-            {/* View Switcher Tabs */}
-            <div className="flex items-center justify-between mb-3 bg-white border border-slate-200 rounded-lg p-1 shadow-sm">
-              <span className="text-xs font-bold text-slate-700 px-2 flex items-center gap-1.5">
-                <Package className="w-3.5 h-3.5 text-amber-600" />
-                <span>Product Showcase</span>
-              </span>
-              <div className="flex items-center gap-1">
-                <button
-                  onClick={() => setActiveView('real')}
-                  className={`text-xs px-3 py-1 rounded-md font-semibold transition-all ${
-                    activeView === 'real'
-                      ? 'bg-amber-500 text-slate-950 shadow-sm'
-                      : 'text-slate-600 hover:text-slate-900'
-                  }`}
-                >
-                  Printed Carton
-                </button>
-                <button
-                  onClick={() => setActiveView('all')}
-                  className={`text-xs px-3 py-1 rounded-md font-semibold transition-all ${
-                    activeView === 'all'
-                      ? 'bg-amber-500 text-slate-950 shadow-sm'
-                      : 'text-slate-600 hover:text-slate-900'
-                  }`}
-                >
-                  All Box Types
-                </button>
-                <button
-                  onClick={() => setActiveView('3d')}
-                  className={`text-xs px-3 py-1 rounded-md font-semibold transition-all ${
-                    activeView === '3d'
-                      ? 'bg-amber-500 text-slate-950 shadow-sm'
-                      : 'text-slate-600 hover:text-slate-900'
-                  }`}
-                >
-                  3D Simulation
-                </button>
-              </div>
-            </div>
-
-            {/* Card Container with subtle tilt */}
-            <div 
-              className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm transition-transform duration-300 relative group"
-              style={{
-                transform: `rotateX(${tilt.x * 0.5}deg) rotateY(${tilt.y * 0.5}deg) translateY(${parallaxOffset * 0.1}px)`,
-              }}
+          <div className="mt-9 flex flex-wrap items-center gap-3">
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 rounded-lg bg-amber-500 px-6 py-3 text-sm font-bold text-slate-950 shadow-lg shadow-amber-900/20 transition-colors hover:bg-amber-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
             >
-              {/* TAB 1: Manufactured Printed Carton Photo */}
-              {activeView === 'real' && (
-                <div className="space-y-4 animate-fade-in">
-                  <div className="h-64 sm:h-72 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center p-4 overflow-hidden">
-                    <img 
-                      src="/O1CN01clwYha1unbYHXIdlU_!!6000000006082-2-yinhe.png_.avif" 
-                      alt="Printed Corrugated Box manufactured by Print Gallery" 
-                      className="max-h-full max-w-full object-contain filter drop-shadow-md hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                  
-                  <div className="bg-slate-50 border border-slate-200 p-3 rounded-lg flex items-center justify-between text-xs">
-                    <div>
-                      <div className="font-bold text-slate-900">Custom Branded Shipping Carton</div>
-                      <div className="text-slate-500">5-Ply Double Wall • Die-Cut Handle Cutouts</div>
-                    </div>
-                    <span className="bg-amber-100 text-amber-800 text-[10px] font-bold px-2 py-0.5 rounded">
-                      OEM Ready
-                    </span>
-                  </div>
-                </div>
-              )}
-
-              {/* TAB 2: All Box Types Lineup Photo */}
-              {activeView === 'all' && (
-                <div className="space-y-4 animate-fade-in">
-                  <div className="h-64 sm:h-72 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center p-2 overflow-hidden">
-                    <img 
-                      src="/all-type-of-boxes.jpg" 
-                      alt="All types of corrugated cardboard boxes" 
-                      className="max-h-full max-w-full object-contain rounded-lg hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                  
-                  <div className="bg-slate-50 border border-slate-200 p-3 rounded-lg flex items-center justify-between text-xs">
-                    <div>
-                      <div className="font-bold text-slate-900">Complete Box Range</div>
-                      <div className="text-slate-500">RSC, Overlap, Mailers & Partition Trays</div>
-                    </div>
-                    <a href="#contact" className="text-amber-600 font-bold hover:underline">
-                      Get Quote →
-                    </a>
-                  </div>
-                </div>
-              )}
-
-              {/* TAB 3: Interactive 3D CSS Box */}
-              {activeView === '3d' && (
-                <div className="space-y-4 animate-fade-in">
-                  <div className="h-64 sm:h-72 rounded-xl bg-slate-50 border border-slate-100 flex flex-col items-center justify-center p-4 relative overflow-hidden perspective-1000">
-                    
-                    {/* Simulated 3D isometric box */}
-                    <div className="relative w-40 h-44 bg-gradient-to-br from-[#c88d52] via-[#b87642] to-[#915424] rounded-lg border border-amber-300/60 shadow-lg transform -rotate-12 hover:rotate-0 transition-transform duration-500 flex flex-col justify-between p-3 text-center">
-                      <div className="text-[9px] font-bold font-mono text-amber-950 uppercase border-b border-amber-800/20 pb-1">
-                        PRINT GALLERY LTD
-                      </div>
-                      <div className="my-auto py-2 border border-amber-900/30 rounded bg-amber-800/10">
-                        <span className="text-[10px] font-black text-amber-950 block">CORRUGATED BOX</span>
-                        <span className="text-[8px] font-mono text-amber-900">BURST 18+ • 5-PLY</span>
-                      </div>
-                      <div className="flex justify-between text-[8px] font-mono text-amber-950">
-                        <span>L: 14"</span>
-                        <span>W: 10"</span>
-                        <span>H: 8"</span>
-                      </div>
-                    </div>
-
-                    <p className="text-[11px] text-slate-500 font-medium text-center mt-3">
-                      Interactive 3D geometry responds to mouse movement
-                    </p>
-                  </div>
-
-                  <div className="bg-slate-50 border border-slate-200 p-3 rounded-lg flex items-center justify-between text-xs">
-                    <div>
-                      <div className="font-bold text-slate-900">Custom Dimensions Available</div>
-                      <div className="text-slate-500">From 4" mini mailers to 60" master crates</div>
-                    </div>
-                    <a href="#contact" className="text-amber-600 font-bold hover:underline">
-                      Get Quote →
-                    </a>
-                  </div>
-                </div>
-              )}
-
-              {/* Bottom Quick Feature Tagline */}
-              <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
-                <span className="flex items-center gap-1.5">
-                  <ShieldCheck className="w-3.5 h-3.5 text-amber-600" />
-                  <span>Certified Burst & ECT Resistance</span>
-                </span>
-                <span className="font-semibold text-slate-700">Same-Day Prototyping</span>
-              </div>
-            </div>
-
+              <span>Get a quote</span>
+              <ArrowRight className="h-4 w-4" />
+            </a>
+            <a
+              href="#infrastructure"
+              className="inline-flex items-center gap-2 rounded-lg border border-white/30 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur transition-colors hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+            >
+              <Factory className="h-4 w-4" />
+              <span>View machinery and lab</span>
+            </a>
+            <a
+              href="tel:+919810466405"
+              className="inline-flex items-center gap-2 rounded-lg px-3 py-3 text-sm font-semibold text-slate-100 transition-colors hover:text-amber-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300"
+            >
+              <Phone className="h-4 w-4 text-amber-400" />
+              <span>Call factory sales</span>
+            </a>
           </div>
+        </div>
 
+        {/* Stat bar + slide controls */}
+        <div className="mt-14 lg:mt-20">
+          <dl className="grid grid-cols-2 sm:grid-cols-4 overflow-hidden rounded-xl border border-white/15 bg-white/10 backdrop-blur-md divide-x divide-y sm:divide-y-0 divide-white/15">
+            {STATS.map((s) => (
+              <div key={s.label} className="px-5 py-4">
+                <dt className="sr-only">{s.label}</dt>
+                <dd className="text-2xl font-extrabold tracking-tight text-white">{s.value}</dd>
+                <dd className="mt-0.5 text-xs font-medium text-slate-300">{s.label}</dd>
+              </div>
+            ))}
+          </dl>
+
+          <div className="mt-4 flex justify-end gap-2" role="group" aria-label="Banner slides">
+            {BANNERS.map((b, i) => (
+              <button
+                key={b.src}
+                type="button"
+                onClick={() => setIndex(i)}
+                aria-label={`Show banner ${i + 1}: ${b.alt}`}
+                aria-current={i === index}
+                className={`h-1.5 rounded-full transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300 ${
+                  i === index ? 'w-8 bg-amber-500' : 'w-4 bg-white/40 hover:bg-white/60'
+                }`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
