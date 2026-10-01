@@ -103,7 +103,7 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
               onClick={onOpenQuote}
               className="inline-flex items-center gap-1.5 bg-amber-500 text-slate-950 font-bold text-[10px] sm:text-xs px-2.5 py-1.5 rounded-lg shadow-sm"
             >
-              <Box className="w-3.5 h-3.5" />
+              {/* <Box className="w-3.5 h-3.5" /> */}
               <span>Quote</span>
             </a>
             <button
