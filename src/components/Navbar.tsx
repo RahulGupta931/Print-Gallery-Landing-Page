@@ -99,7 +99,7 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
           {/* Mobile Toggle */}
           <div className="flex lg:hidden items-center gap-2 ml-auto">
             <a
-              href="#calculator"
+              href="#contact"
               onClick={onOpenQuote}
               className="inline-flex items-center gap-1.5 bg-amber-500 text-slate-950 font-bold text-[10px] sm:text-xs px-2.5 py-1.5 rounded-lg shadow-sm"
             >
