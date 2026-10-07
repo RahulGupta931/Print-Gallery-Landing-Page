@@ -3,6 +3,8 @@ import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 
 const outputDirectory = resolve('dist');
+const publicDirectory = resolve('public');
+const siteOrigin = 'https://www.print-gallery.com';
 const template = await readFile(resolve(outputDirectory, 'index.html'), 'utf8');
 const serverEntryPath = resolve(outputDirectory, 'server/entry-server.js');
 const { render, servicePages, getSeoMetadata, getStructuredData } = await import(pathToFileURL(serverEntryPath).href);
@@ -14,6 +16,9 @@ const paths = [
   '/thank-you',
   '/404',
 ];
+const sitemapPaths = paths.filter((pathname) =>
+  pathname !== '/404' && pathname !== '/thank-you',
+);
 
 function escapeAttribute(value) {
   return value.replace(/[&"<>]/g, (character) => ({
@@ -57,6 +62,8 @@ function renderDocument(pathname) {
   }
   if (metadata.noindex) {
     html = html.replace('</head>', '  <meta name="robots" content="noindex,follow" />\n  </head>');
+  } else {
+    html = html.replace('</head>', '  <meta name="robots" content="index,follow" />\n  </head>');
   }
   const structuredData = getStructuredData(metadata)
     .map((data) => `<script type="application/ld+json">${JSON.stringify(data).replace(/</g, '\\u003c')}</script>`)
@@ -77,5 +84,15 @@ for (const pathname of paths) {
   }
 }
 
+const sitemap = [
+  '<?xml version="1.0" encoding="UTF-8"?>',
+  '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+  ...sitemapPaths.map((pathname) => `  <url><loc>${siteOrigin}${pathname}</loc></url>`),
+  '</urlset>',
+  '',
+].join('\n');
+await writeFile(resolve(publicDirectory, 'sitemap.xml'), sitemap);
+await writeFile(resolve(outputDirectory, 'sitemap.xml'), sitemap);
+
 await rm(resolve(outputDirectory, 'server'), { recursive: true, force: true });
-console.log(`Pre-rendered ${paths.length} routes.`);
+console.log(`Pre-rendered ${paths.length} routes and indexed ${sitemapPaths.length} URLs in the sitemap.`);

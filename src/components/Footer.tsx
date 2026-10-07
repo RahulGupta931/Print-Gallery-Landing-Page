@@ -45,40 +45,40 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Col 2: Packaging Solutions */}
+          {/* Col 2: Packaging Services */}
           <div className="space-y-3">
             <h4 className="text-sm font-bold text-white uppercase tracking-wider">
-              Packaging Products
+              Packaging Services
             </h4>
             <ul className="space-y-2">
               <li>
                 <a href="/corrugated-boxes" className="hover:text-amber-500 transition-colors">
-                  Corrugated Shipping Boxes
-                </a>
-              </li>
-              <li>
-                <a href="/die-cut-packaging" className="hover:text-amber-500 transition-colors">
-                  Die-Cut E-Commerce Mailers
-                </a>
-              </li>
-              <li>
-                <a href="/corrugated-boxes" className="hover:text-amber-500 transition-colors">
-                  Heavy-Duty 7-Ply Cartons
+                  Corrugated Boxes
                 </a>
               </li>
               <li>
                 <a href="/offset-printing" className="hover:text-amber-500 transition-colors">
-                  Offset Printed Monocartons
+                  Offset Printing
                 </a>
               </li>
               <li>
                 <a href="/die-cut-packaging" className="hover:text-amber-500 transition-colors">
-                  Self-Locking Retail Packaging
+                  Die-Cut Packaging
                 </a>
               </li>
               <li>
                 <a href="/product-labels" className="hover:text-amber-500 transition-colors">
-                  High-Resolution Product Labels
+                  Product Labels
+                </a>
+              </li>
+              <li>
+                <a href="/sustainable-packaging" className="hover:text-amber-500 transition-colors">
+                  Sustainable Packaging
+                </a>
+              </li>
+              <li>
+                <a href="/pos-displays" className="hover:text-amber-500 transition-colors">
+                  POS Displays
                 </a>
               </li>
             </ul>
