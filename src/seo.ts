@@ -1,6 +1,6 @@
 import { servicePages } from './serviceData';
 
-const origin = 'https://www.print-gallery.com';
+const origin = 'https://www.printgallerys.com';
 
 export interface SeoMetadata {
   title: string;

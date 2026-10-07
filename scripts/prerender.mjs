@@ -4,7 +4,7 @@ import { pathToFileURL } from 'node:url';
 
 const outputDirectory = resolve('dist');
 const publicDirectory = resolve('public');
-const siteOrigin = 'https://www.print-gallery.com';
+const siteOrigin = 'https://www.printgallerys.com';
 const template = await readFile(resolve(outputDirectory, 'index.html'), 'utf8');
 const serverEntryPath = resolve(outputDirectory, 'server/entry-server.js');
 const { render, servicePages, getSeoMetadata, getStructuredData } = await import(pathToFileURL(serverEntryPath).href);
@@ -56,12 +56,12 @@ function renderDocument(pathname) {
   html = setMeta(html, 'name', 'description', metadata.description);
   html = setMeta(html, 'property', 'og:title', metadata.title);
   html = setMeta(html, 'property', 'og:description', metadata.description);
-  html = setMeta(html, 'property', 'og:url', `https://www.print-gallery.com${metadata.path}`);
+  html = setMeta(html, 'property', 'og:url', `https://www.printgallerys.com${metadata.path}`);
   html = html.replace(/<link rel="canonical"[^>]*>/g, '');
   if (pathname !== '/404') {
     html = html.replace(
       '</head>',
-      `  <link rel="canonical" href="https://www.print-gallery.com${metadata.path}" />\n  </head>`,
+      `  <link rel="canonical" href="https://www.printgallerys.com${metadata.path}" />\n  </head>`,
     );
   }
   if (metadata.noindex) {

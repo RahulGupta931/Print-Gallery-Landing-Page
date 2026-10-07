@@ -393,7 +393,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="text-xs font-bold uppercase text-slate-500">Website</h4>
-                    <a href="https://www.print-gallery.com" className="text-xs sm:text-sm text-slate-800 font-medium hover:text-amber-700">www.print-gallery.com</a>
+                    <a href="https://www.printgallerys.com" className="text-xs sm:text-sm text-slate-800 font-medium hover:text-amber-700">www.print-gallery.com</a>
                   </div>
                 </div>
               </div>

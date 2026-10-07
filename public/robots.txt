@@ -10,4 +10,4 @@ Allow: /terms
 Allow: /privacy-policy
 Disallow: /thank-you
 
-Sitemap: https://www.print-gallery.com/sitemap.xml
+Sitemap: https://www.printgallerys.com/sitemap.xml
