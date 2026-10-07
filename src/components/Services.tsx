@@ -5,7 +5,6 @@ import {
   Megaphone, 
   Leaf, 
   Scissors, 
-  ArrowRight, 
   Check
 } from 'lucide-react';
 import { useInView } from '../hooks/useMotion';
@@ -149,14 +148,6 @@ export default function Services() {
                   </div>
                 </div>
 
-                {/* Card CTA */}
-                <a
-                  href="#calculator"
-                  className="w-full inline-flex items-center justify-center gap-2 bg-slate-100 hover:bg-amber-500 text-slate-800 hover:text-slate-950 py-2.5 rounded-lg text-xs font-bold border border-slate-200 transition-colors"
-                >
-                  <span>Configure {service.title.split(' ')[0]}</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </a>
               </div>
             );
           })}
