@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { 
   CheckCircle2, 
-  FlaskConical, 
-  Cpu, 
   ShieldCheck, 
   ChevronRight
 } from 'lucide-react';
