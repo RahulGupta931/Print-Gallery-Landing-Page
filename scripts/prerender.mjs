@@ -16,9 +16,7 @@ const paths = [
   '/thank-you',
   '/404',
 ];
-const sitemapPaths = paths.filter((pathname) =>
-  pathname !== '/404' && pathname !== '/thank-you',
-);
+const sitemapPaths = paths.filter((pathname) => !getSeoMetadata(pathname).noindex);
 
 function escapeAttribute(value) {
   return value.replace(/[&"<>]/g, (character) => ({
@@ -41,6 +39,12 @@ function renderDocument(pathname) {
   const metadataPath = pathname === '/404' ? '/404' : pathname;
   const metadata = getSeoMetadata(metadataPath);
   const renderedApp = render(pathname === '/404' ? '/unavailable-page' : pathname);
+  if (!metadata.noindex && (metadata.title.length < 50 || metadata.title.length > 60)) {
+    throw new Error(`Indexable page title must be 50–60 characters: ${pathname} (${metadata.title.length})`);
+  }
+  if (!metadata.noindex && (renderedApp.match(/<h1\b/g) ?? []).length !== 1) {
+    throw new Error(`Indexable page must render exactly one H1: ${pathname}`);
+  }
   const resourceHints = [...renderedApp.matchAll(/<link rel="preload"[^>]*\/?>/g)]
     .map(([link]) => link);
   const appMarkup = renderedApp.replace(/<link rel="preload"[^>]*\/?>/g, '');

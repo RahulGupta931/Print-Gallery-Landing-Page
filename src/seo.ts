@@ -14,8 +14,16 @@ export function getSeoMetadata(pathname: string): SeoMetadata {
   const service = servicePages.find((item) => path === `/${item.slug}`);
 
   if (service) {
+    const titles: Record<string, string> = {
+      'corrugated-boxes': 'Custom Corrugated Boxes in Noida, India | Print Gallery',
+      'offset-printing': 'Offset Printing for Packaging and Marketing | Print Gallery',
+      'die-cut-packaging': 'Custom Die-Cut Packaging and Mailer Boxes | Print Gallery',
+      'product-labels': 'Printed Product and Barcode Labels | Print Gallery',
+      'sustainable-packaging': 'Recyclable Kraft and Sustainable Packaging | Print Gallery',
+      'pos-displays': 'POS Displays and Promotional Print Services | Print Gallery',
+    };
     return {
-      title: `${service.title} | Print Gallery`,
+      title: titles[service.slug],
       description: service.description,
       path,
     };
@@ -28,12 +36,12 @@ export function getSeoMetadata(pathname: string): SeoMetadata {
       path: '/',
     },
     '/privacy-policy': {
-      title: 'Privacy Policy | Print Gallery',
+      title: 'Privacy Policy for Print Gallery Website | Print Gallery',
       description: 'Learn how Print Gallery handles information when you browse our website or prepare a printing and packaging enquiry.',
       path,
     },
     '/terms': {
-      title: 'Terms of Use | Print Gallery',
+      title: 'Terms of Use for Print Gallery Website | Print Gallery',
       description: 'Read the terms for using the Print Gallery website and requesting printing and packaging quotes.',
       path,
     },

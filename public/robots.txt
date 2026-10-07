@@ -1,5 +1,13 @@
 User-agent: *
 Allow: /
+Allow: /corrugated-boxes
+Allow: /offset-printing
+Allow: /die-cut-packaging
+Allow: /product-labels
+Allow: /sustainable-packaging
+Allow: /pos-displays
+Allow: /terms
+Allow: /privacy-policy
 Disallow: /thank-you
 
 Sitemap: https://www.print-gallery.com/sitemap.xml
