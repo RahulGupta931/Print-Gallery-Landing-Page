@@ -5,13 +5,13 @@
     {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "printgallerys.com" }],
-      "destination": "https://www.print-gallery.com/:path*",
+      "destination": "https://www.printgallerys.com/:path*",
       "permanent": true
     },
     {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "www.printgallerys.com" }],
-      "destination": "https://www.print-gallery.com/:path*",
+      "destination": "https://www.printgallerys.com/:path*",
       "permanent": true
     }
   ]
