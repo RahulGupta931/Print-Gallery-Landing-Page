@@ -88,6 +88,8 @@ export default function GraphicDesignTeam() {
             <img
               src={designImages[selectedBlueprint].src}
               alt={designImages[selectedBlueprint].title}
+              loading="lazy"
+              decoding="async"
               className="max-h-72 w-auto object-contain rounded-lg"
             />
             <div className="absolute top-3 left-3 bg-slate-100 border border-slate-200 text-slate-700 text-[10px] font-bold px-2.5 py-1 rounded">

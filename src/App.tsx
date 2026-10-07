@@ -13,8 +13,16 @@ import Footer from './components/Footer';
 import { useScrollProgress } from './hooks/useMotion';
 import HeroBanner from './components/HeroBanner';
 import FactoryGallery from './components/FactoryGallery';
+import BoxCalculator from './components/BoxCalculator';
+import {
+  NotFoundPage,
+  PolicyPage,
+  ServicePage,
+  ThankYouPage,
+} from './pages';
+import { servicePages } from './serviceData';
 
-function App() {
+function HomePage() {
   const { progress } = useScrollProgress();
   const factoryGalleryImages = ['/gallery.jpeg', '/gallery1.jpeg', '/gallery2.jpeg', '/gallery3.jpeg'];
 
@@ -107,6 +115,7 @@ function App() {
 
         {/* Services & Capabilities */}
         <Services />
+        <BoxCalculator />
 
         {/* Industrial Plant & QC Lab Testing */}
         <Infrastructure />
@@ -161,6 +170,18 @@ function App() {
       <Footer />
     </div>
   );
+}
+
+function App({ pathname }: { pathname: string }) {
+  const path = pathname === '/' ? '/' : `/${pathname.split('/').filter(Boolean).join('/')}`;
+  const service = servicePages.find((item) => path === `/${item.slug}`);
+
+  if (service) return <ServicePage service={service} />;
+  if (path === '/privacy-policy') return <PolicyPage kind="privacy" />;
+  if (path === '/terms') return <PolicyPage kind="terms" />;
+  if (path === '/thank-you') return <ThankYouPage />;
+  if (path !== '/') return <NotFoundPage />;
+  return <HomePage />;
 }
 
 export default App;

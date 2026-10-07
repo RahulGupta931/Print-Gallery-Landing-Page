@@ -29,13 +29,8 @@ export default function Hero() {
 
   return (
     <section
-      id="hero"
+      id="brand-banner"
       className="relative isolate flex flex-col overflow-hidden bg-white text-slate-800 pt-28 lg:pt-36"
-      style={{
-        backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.52), rgba(15, 23, 42, 0.62)), url('${BANNERS[index]}')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
     >
       {/* Banner photos (crossfade) */}
       <div className="absolute inset-0 -z-20" aria-hidden="true">
@@ -44,7 +39,8 @@ export default function Hero() {
             key={src}
             src={src}
             alt=""
-            loading={i === 0 ? 'eager' : 'lazy'}
+            loading="lazy"
+            decoding="async"
             className={`absolute inset-0 h-full w-full object-cover object-right transition-opacity duration-1000 ${
               i === index ? 'opacity-100' : 'opacity-0'
             }`}
@@ -67,11 +63,11 @@ export default function Hero() {
             ))}
           </ul>
 
-          <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] text-white drop-shadow-md">
+          <h2 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] text-white drop-shadow-md">
             Strong Packaging
             <br />
             for a <span className="text-amber-500">Better Tomorrow</span>
-          </h1>
+          </h2>
 
           <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-slate-100">
             We supply high-quality corrugated boxes and paper rolls for businesses that value

@@ -13,6 +13,7 @@ import { useInView } from '../hooks/useMotion';
 const services = [
   {
     id: 'corrugated',
+    slug: 'corrugated-boxes',
     icon: Package,
     title: 'Corrugated Box Manufacturing',
     subtitle: 'Single, Double & Triple Wall (3, 5 & 7-Ply)',
@@ -23,6 +24,7 @@ const services = [
   },
   {
     id: 'offset',
+    slug: 'offset-printing',
     icon: Printer,
     title: 'All-Format Offset Printing',
     subtitle: 'Vibrant Multi-Color High Definition',
@@ -33,6 +35,7 @@ const services = [
   },
   {
     id: 'die-cut',
+    slug: 'die-cut-packaging',
     icon: Scissors,
     title: 'Precision Die-Cut Packaging',
     subtitle: 'Custom Mailers & Self-Locking Cartons',
@@ -43,6 +46,7 @@ const services = [
   },
   {
     id: 'labels',
+    slug: 'product-labels',
     icon: Tag,
     title: 'High-Resolution Product Labels',
     subtitle: 'Rolls & Sheets for Retail & Pharma',
@@ -53,6 +57,7 @@ const services = [
   },
   {
     id: 'eco',
+    slug: 'sustainable-packaging',
     icon: Leaf,
     title: 'Sustainable Eco-Packaging',
     subtitle: '100% Recyclable FSC Kraft Solutions',
@@ -63,6 +68,7 @@ const services = [
   },
   {
     id: 'promo',
+    slug: 'pos-displays',
     icon: Megaphone,
     title: 'POS Displays & Promotional Print',
     subtitle: 'Retail Standees, Inserts & Banners',
@@ -123,7 +129,7 @@ export default function Services() {
 
                   {/* Title & Description */}
                   <h3 className="text-lg font-bold text-slate-900 mb-1">
-                    {service.title}
+                    <a className="hover:text-amber-700" href={`/${service.slug}`}>{service.title}</a>
                   </h3>
                   <div className="text-xs text-amber-700 font-semibold mb-2">
                     {service.subtitle}

@@ -114,7 +114,7 @@ export default function Infrastructure() {
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
-              <Cpu className="w-4 h-4" />
+              {/* <Cpu className="w-4 h-4" /> */}
               <span>Manufacturing Units & Press</span>
             </button>
             <button
@@ -125,7 +125,7 @@ export default function Infrastructure() {
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
-              <FlaskConical className="w-4 h-4" />
+              {/* <FlaskConical className="w-4 h-4" /> */}
               <span>Quality Testing Lab (8+ Tests)</span>
             </button>
           </div>
@@ -142,6 +142,8 @@ export default function Infrastructure() {
                 <img
                   src={manufacturingUnits[selectedMachine].image}
                   alt={manufacturingUnits[selectedMachine].title}
+                  loading="lazy"
+                  decoding="async"
                   className="max-h-72 w-auto object-contain rounded-lg"
                 />
               </div>
@@ -225,6 +227,8 @@ export default function Infrastructure() {
                     <img
                       src={equip.src}
                       alt={equip.name}
+                      loading="lazy"
+                      decoding="async"
                       className="max-h-full max-w-full object-contain"
                     />
                     <div className="absolute top-2 left-2 bg-white border border-slate-200 text-slate-700 text-[10px] font-semibold px-2 py-0.5 rounded shadow-xs">

@@ -130,6 +130,8 @@ export default function ImageShowcase() {
                 <img
                   src={item.src}
                   alt={item.title}
+                  loading="lazy"
+                  decoding="async"
                   className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
                 />
                 
@@ -183,6 +185,7 @@ export default function ImageShowcase() {
                   <img
                     src={activeModalItem.src}
                     alt={activeModalItem.title}
+                    loading="lazy"
                     className="max-h-64 w-auto object-contain"
                   />
                 </div>

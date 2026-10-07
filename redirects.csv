@@ -1,0 +1,3 @@
+source,destination,status,notes
+https://printgallerys.com/,https://www.print-gallery.com/,301,Legacy apex homepage confirmed; Vercel host redirect also preserves matching paths
+https://www.printgallerys.com/,https://www.print-gallery.com/,301,Legacy www homepage confirmed; Vercel host redirect also preserves matching paths

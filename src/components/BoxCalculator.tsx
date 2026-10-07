@@ -13,6 +13,26 @@ interface BoxCalculatorProps {
   onSelectSpec?: (spec: string) => void;
 }
 
+const BOX_OPTIONS = [
+  { id: 'rsc', label: 'RSC Shipping Box', desc: 'Standard flap carton' },
+  { id: 'mailer', label: 'Die-Cut Mailer', desc: 'Tuck-in e-commerce' },
+  { id: 'heavy', label: 'Heavy Master Box', desc: '7-ply export carton' },
+  { id: 'rigid', label: 'Rigid Setup Box', desc: 'High-end packaging' },
+] as const;
+
+const PLY_OPTIONS = [
+  { id: '3ply', label: '3-Ply', badge: 'Light' },
+  { id: '5ply', label: '5-Ply', badge: 'Standard' },
+  { id: '7ply', label: '7-Ply', badge: 'Heavy' },
+] as const;
+
+const FLUTE_OPTIONS = [
+  { id: 'B', label: 'B', mm: '3mm' },
+  { id: 'C', label: 'C', mm: '4mm' },
+  { id: 'E', label: 'E', mm: '1.5mm' },
+  { id: 'BC', label: 'BC', mm: '7mm' },
+] as const;
+
 export default function BoxCalculator({ onSelectSpec }: BoxCalculatorProps) {
   const { ref, isInView } = useInView();
 
@@ -72,10 +92,10 @@ export default function BoxCalculator({ onSelectSpec }: BoxCalculatorProps) {
         <div className={`text-center max-w-3xl mx-auto mb-14 transition-all duration-700 ${
           isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <div className="inline-flex items-center gap-2 bg-amber-50 border border-amber-200 text-amber-800 px-3.5 py-1.5 rounded-full text-xs font-semibold mb-3">
+          {/* <div className="inline-flex items-center gap-2 bg-amber-50 border border-amber-200 text-amber-800 px-3.5 py-1.5 rounded-full text-xs font-semibold mb-3">
             <Sliders className="w-3.5 h-3.5 text-amber-600" />
             <span>Interactive 3D Tool</span>
-          </div>
+          </div> */}
           <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-slate-900 mb-3">
             Box Dimension & Strength Calculator
           </h2>
@@ -95,15 +115,10 @@ export default function BoxCalculator({ onSelectSpec }: BoxCalculatorProps) {
                 1. Select Box Category
               </label>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-                {[
-                  { id: 'rsc', label: 'RSC Shipping Box', desc: 'Standard flap carton' },
-                  { id: 'mailer', label: 'Die-Cut Mailer', desc: 'Tuck-in e-commerce' },
-                  { id: 'heavy', label: 'Heavy Master Box', desc: '7-ply export carton' },
-                  { id: 'rigid', label: 'Rigid Setup Box', desc: 'High-end packaging' },
-                ].map((item) => (
+                {BOX_OPTIONS.map((item) => (
                   <button
                     key={item.id}
-                    onClick={() => setBoxType(item.id as any)}
+                    onClick={() => setBoxType(item.id)}
                     className={`p-3 rounded-xl text-left border transition-all ${
                       boxType === item.id
                         ? 'bg-amber-500 border-amber-500 text-slate-950 font-bold shadow-sm'
@@ -187,14 +202,10 @@ export default function BoxCalculator({ onSelectSpec }: BoxCalculatorProps) {
                   3. Corrugated Ply Rating
                 </label>
                 <div className="grid grid-cols-3 gap-2">
-                  {[
-                    { id: '3ply', label: '3-Ply', badge: 'Light' },
-                    { id: '5ply', label: '5-Ply', badge: 'Standard' },
-                    { id: '7ply', label: '7-Ply', badge: 'Heavy' },
-                  ].map((p) => (
+                  {PLY_OPTIONS.map((p) => (
                     <button
                       key={p.id}
-                      onClick={() => setPly(p.id as any)}
+                      onClick={() => setPly(p.id)}
                       className={`py-2 px-2 rounded-lg text-center border transition-all ${
                         ply === p.id
                           ? 'bg-amber-500 text-slate-950 font-bold border-amber-500 shadow-sm'
@@ -213,15 +224,10 @@ export default function BoxCalculator({ onSelectSpec }: BoxCalculatorProps) {
                   4. Flute Profile
                 </label>
                 <div className="grid grid-cols-4 gap-1.5">
-                  {[
-                    { id: 'B', label: 'B', mm: '3mm' },
-                    { id: 'C', label: 'C', mm: '4mm' },
-                    { id: 'E', label: 'E', mm: '1.5mm' },
-                    { id: 'BC', label: 'BC', mm: '7mm' },
-                  ].map((f) => (
+                  {FLUTE_OPTIONS.map((f) => (
                     <button
                       key={f.id}
-                      onClick={() => setFlute(f.id as any)}
+                      onClick={() => setFlute(f.id)}
                       className={`py-2 px-1 rounded-lg text-center border transition-all ${
                         flute === f.id
                           ? 'bg-amber-500 text-slate-950 font-bold border-amber-500 shadow-sm'

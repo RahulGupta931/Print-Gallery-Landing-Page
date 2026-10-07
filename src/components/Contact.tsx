@@ -31,12 +31,36 @@ export default function Contact() {
     quantity: '1,000 - 5,000 units',
     message: '',
   });
+  const [submissionError, setSubmissionError] = useState('');
 
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    const handoff = e.currentTarget.dataset.handoff === 'email' ? 'email' : 'whatsapp';
+    const enquiry = [
+      'Hello PRINT GALLERY, I would like a packaging quote.',
+      `Name: ${formData.name}`,
+      `Company: ${formData.company}`,
+      `Phone: ${formData.phone}`,
+      `Email: ${formData.email}`,
+      `Category: ${formData.packagingType}`,
+      `Quantity: ${formData.quantity}`,
+      formData.dimensions ? `Specs: ${formData.dimensions}` : '',
+      formData.message ? `Notes: ${formData.message}` : '',
+    ].filter(Boolean).join('\n');
+    const url = handoff === 'email'
+      ? `mailto:printgallery17@gmail.com?subject=${encodeURIComponent('Packaging quote request')}&body=${encodeURIComponent(enquiry)}`
+      : `https://wa.me/919810466405?text=${encodeURIComponent(enquiry)}`;
+
+    try {
+      sessionStorage.setItem('printGalleryQuoteHandoff', JSON.stringify({
+        url,
+        label: handoff === 'email' ? 'Continue to email' : 'Continue to WhatsApp',
+      }));
+      window.location.assign('/thank-you');
+    } catch (error) {
+      console.error('Unable to prepare the enquiry handoff.', error);
+      setSubmissionError('We could not prepare your enquiry on this device. Please contact us by phone or email.');
+    }
   };
 
   const whatsappMessage = encodeURIComponent(
@@ -121,37 +145,10 @@ export default function Contact() {
         <div className="grid lg:grid-cols-12 gap-8 items-stretch">
           
           <div className="lg:col-span-7 bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm">
-            {submitted ? (
-              <div className="py-12 text-center space-y-4">
-                <div className="w-14 h-14 rounded-full bg-emerald-100 text-emerald-700 mx-auto flex items-center justify-center">
-                  <CheckCircle2 className="w-7 h-7" />
-                </div>
-                <h3 className="text-2xl font-black text-slate-900">
-                  Quote Request Received!
-                </h3>
-                <p className="text-slate-600 text-sm max-w-md mx-auto leading-relaxed">
-                  Thank you! Our packaging team has received your enquiry. We will contact you with full commercial pricing and technical specifications within 2 business hours.
-                </p>
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-                  <a
-                    href={whatsappHref}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs px-4 py-2.5 rounded-lg min-h-[44px]"
-                  >
-                    <WhatsAppIcon className="w-4 h-4" />
-                    Continue on WhatsApp
-                  </a>
-                  <button
-                    onClick={() => setSubmitted(false)}
-                    className="btn-primary text-xs"
-                  >
-                    Submit Another Enquiry
-                  </button>
-                </div>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
+            <form
+              onSubmit={handleSubmit}
+              className="space-y-4"
+            >
                 <div>
                   <h3 className="text-xl font-black text-slate-900 mb-1">
                     Request an Instant Quote
@@ -293,23 +290,41 @@ export default function Contact() {
                   />
                 </div>
 
+                <label className="flex items-start gap-2 text-xs leading-relaxed text-slate-600">
+                  <input type="checkbox" required className="mt-0.5 accent-amber-600" />
+                  <span>
+                    I agree that my enquiry details will be prepared in my selected email or WhatsApp app. Read our{' '}
+                    <a href="/privacy-policy" className="font-semibold text-amber-800 underline">Privacy Policy</a>.
+                  </span>
+                </label>
+
+                {submissionError && <p role="alert" className="text-sm font-medium text-red-700">{submissionError}</p>}
+
                 <div className="grid sm:grid-cols-2 gap-3 pt-1">
                   <button
                     type="submit"
+                    name="handoff"
+                    value="whatsapp"
+                    onClick={(event) => {
+                      event.currentTarget.form?.setAttribute('data-handoff', event.currentTarget.value);
+                    }}
                     className="w-full btn-primary text-sm font-bold py-3.5 flex items-center justify-center gap-2 min-h-[48px]"
                   >
                     <Send className="w-4 h-4" />
-                    <span>Submit RFQ</span>
+                    <span>Continue with WhatsApp</span>
                   </button>
-                  <a
-                    href={whatsappHref}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button
+                    type="submit"
+                    name="handoff"
+                    value="email"
+                    onClick={(event) => {
+                      event.currentTarget.form?.setAttribute('data-handoff', event.currentTarget.value);
+                    }}
                     className="w-full inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-4 rounded-lg text-sm shadow-sm transition-colors min-h-[48px]"
                   >
-                    <WhatsAppIcon className="w-4 h-4" />
-                    <span>Send on WhatsApp</span>
-                  </a>
+                    <Mail className="w-4 h-4" />
+                    <span>Continue with email</span>
+                  </button>
                 </div>
 
                 <div className="flex items-center justify-center gap-6 pt-2 text-xs text-slate-500">
@@ -322,8 +337,7 @@ export default function Contact() {
                     <span>Free Physical Samples</span>
                   </span>
                 </div>
-              </form>
-            )}
+            </form>
           </div>
 
           <div className="lg:col-span-5 space-y-5">
@@ -332,6 +346,7 @@ export default function Contact() {
                 <img
                   src="/logo.png"
                   alt="Print Gallery Logo"
+                  loading="lazy"
                   className="w-12 h-12 rounded-lg border border-slate-200 p-0.5 bg-slate-50 object-cover"
                 />
                 <div>
@@ -378,7 +393,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="text-xs font-bold uppercase text-slate-500">Website</h4>
-                    <span className="text-xs sm:text-sm text-slate-800 font-medium">www.printgallerys.com</span>
+                    <a href="https://www.print-gallery.com" className="text-xs sm:text-sm text-slate-800 font-medium hover:text-amber-700">www.print-gallery.com</a>
                   </div>
                 </div>
               </div>

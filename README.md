@@ -1,75 +1,30 @@
-# React + TypeScript + Vite
+# Print Gallery
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React + Vite site for Print Gallery's printing and packaging services.
 
-Currently, two official plugins are available:
+## Build and deploy
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Run `npm run build` to type-check, build the client assets, statically render the public routes, and generate the custom `404.html`. Deploy the `dist` directory to Vercel. The included `vercel.json` enables extensionless service/legal URLs and redirects requests arriving on `printgallerys.com` and `www.printgallerys.com` to the canonical domain. Both legacy domains must be assigned to the Vercel project and their DNS pointed to Vercel for those redirects to take effect.
 
-## React Compiler
+The sitemap and crawler rules are in `public/sitemap.xml` and `public/robots.txt`. The old domain's accessible sitemap exposed only the canonical homepage URL; additional legacy paths require a previous-site crawl or URL export before they can be mapped accurately.
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## Analytics and Search Console
 
-Note: This will impact Vite dev & build performances.
+Copy `.env.example` to `.env.local` and set:
 
-## Expanding the ESLint configuration
+- `VITE_GA4_MEASUREMENT_ID` to the GA4 measurement ID (`G-...`).
+- `VITE_GSC_VERIFICATION` to the HTML meta-tag verification value supplied by Search Console.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Rebuild and deploy after setting either value. Search Console domain-property verification can instead be completed with a DNS TXT record at the domain provider. Neither integration is active until the account/property values are supplied.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Quote enquiries
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+The quote form validates the enquiry and prepares a WhatsApp message or email draft on the visitor's device. The thank-you page provides a continuation link; the visitor must send the message in WhatsApp or their email app. The website does not store or transmit form details to a Print Gallery server.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Legal content
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The privacy and terms pages are initial website copy based on the current site behavior and known business contact details. Have the business owner review them for accuracy and legal sufficiency before launch.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Quality checks
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+After deployment, verify the public sitemap and robots URLs, each service/legal URL, an unknown path (custom 404), legacy-domain redirects, Search Console ownership, and a Lighthouse mobile run. A PageSpeed score depends on the production hosting, network, and third-party services and is not guaranteed by a local build.

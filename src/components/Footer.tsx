@@ -19,6 +19,7 @@ export default function Footer() {
               <img
                 src="/logo.png"
                 alt="Print Gallery Logo"
+                loading="lazy"
                 className="w-12 h-12 rounded-full border-2 border-amber-500/80 p-0.5 bg-slate-900 object-cover"
               />
               <div>
@@ -51,32 +52,32 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2">
               <li>
-                <a href="#calculator" className="hover:text-amber-500 transition-colors">
+                <a href="/corrugated-boxes" className="hover:text-amber-500 transition-colors">
                   Corrugated Shipping Boxes
                 </a>
               </li>
               <li>
-                <a href="#calculator" className="hover:text-amber-500 transition-colors">
+                <a href="/die-cut-packaging" className="hover:text-amber-500 transition-colors">
                   Die-Cut E-Commerce Mailers
                 </a>
               </li>
               <li>
-                <a href="#calculator" className="hover:text-amber-500 transition-colors">
+                <a href="/corrugated-boxes" className="hover:text-amber-500 transition-colors">
                   Heavy-Duty 7-Ply Cartons
                 </a>
               </li>
               <li>
-                <a href="#services" className="hover:text-amber-500 transition-colors">
+                <a href="/offset-printing" className="hover:text-amber-500 transition-colors">
                   Offset Printed Monocartons
                 </a>
               </li>
               <li>
-                <a href="#services" className="hover:text-amber-500 transition-colors">
+                <a href="/die-cut-packaging" className="hover:text-amber-500 transition-colors">
                   Self-Locking Retail Packaging
                 </a>
               </li>
               <li>
-                <a href="#services" className="hover:text-amber-500 transition-colors">
+                <a href="/product-labels" className="hover:text-amber-500 transition-colors">
                   High-Resolution Product Labels
                 </a>
               </li>
@@ -90,32 +91,32 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2">
               <li>
-                <a href="#infrastructure" className="hover:text-amber-500 transition-colors">
+                <a href="/#infrastructure" className="hover:text-amber-500 transition-colors">
                   Automated Corrugator Line
                 </a>
               </li>
               <li>
-                <a href="#infrastructure" className="hover:text-amber-500 transition-colors">
+                <a href="/#infrastructure" className="hover:text-amber-500 transition-colors">
                   Flexo Board Printing
                 </a>
               </li>
               <li>
-                <a href="#infrastructure" className="hover:text-amber-500 transition-colors">
+                <a href="/#infrastructure" className="hover:text-amber-500 transition-colors">
                   Platen Die-Cutting Units
                 </a>
               </li>
               <li>
-                <a href="#infrastructure" className="hover:text-amber-500 transition-colors">
+                <a href="/#infrastructure" className="hover:text-amber-500 transition-colors">
                   Burst Strength Testing (BF)
                 </a>
               </li>
               <li>
-                <a href="#infrastructure" className="hover:text-amber-500 transition-colors">
+                <a href="/#infrastructure" className="hover:text-amber-500 transition-colors">
                   Edge Crush Tester (ECT)
                 </a>
               </li>
               <li>
-                <a href="#design-team" className="hover:text-amber-500 transition-colors">
+                <a href="/#design-team" className="hover:text-amber-500 transition-colors">
                   In-House CAD Studio
                 </a>
               </li>
@@ -155,14 +156,18 @@ export default function Footer() {
             © {new Date().getFullYear()} PRINT GALLERY. All rights reserved. Leading provider of corrugated cardboard packaging and printing services.
           </p>
 
-          <button
-            onClick={scrollToTop}
-            className="flex items-center gap-2 bg-slate-900 hover:bg-amber-500 text-slate-300 hover:text-slate-950 px-4 py-2 rounded-xl border border-slate-800 hover:border-amber-400 transition-all duration-300 shadow group"
-            aria-label="Scroll to top"
-          >
-            <span>Back to Top</span>
-            <ArrowUp className="w-3.5 h-3.5 group-hover:-translate-y-0.5 transition-transform" />
-          </button>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <a href="/privacy-policy" className="hover:text-white">Privacy Policy</a>
+            <a href="/terms" className="hover:text-white">Terms</a>
+            <button
+              onClick={scrollToTop}
+              className="flex items-center gap-2 bg-slate-900 hover:bg-amber-500 text-slate-300 hover:text-slate-950 px-4 py-2 rounded-xl border border-slate-800 hover:border-amber-400 transition-all duration-300 shadow group"
+              aria-label="Scroll to top"
+            >
+              <span>Back to Top</span>
+              <ArrowUp className="w-3.5 h-3.5 group-hover:-translate-y-0.5 transition-transform" />
+            </button>
+          </div>
         </div>
       </div>
     </footer>

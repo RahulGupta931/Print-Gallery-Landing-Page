@@ -1,0 +1,18 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "printgallerys.com" }],
+      "destination": "https://www.print-gallery.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.printgallerys.com" }],
+      "destination": "https://www.print-gallery.com/:path*",
+      "permanent": true
+    }
+  ]
+}

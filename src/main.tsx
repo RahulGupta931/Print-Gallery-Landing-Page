@@ -1,10 +1,20 @@
 import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { hydrateRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.js'
+import Analytics from './components/Analytics.js'
 
-createRoot(document.getElementById('root')!).render(
+const root = document.getElementById('root')
+
+if (!root) {
+  throw new Error('App root element was not found.')
+}
+
+hydrateRoot(root,
   <StrictMode>
-    <App />
+    <>
+      <Analytics />
+      <App pathname={window.location.pathname} />
+    </>
   </StrictMode>,
 )
