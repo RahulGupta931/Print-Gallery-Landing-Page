@@ -35,6 +35,16 @@ export function getSeoMetadata(pathname: string): SeoMetadata {
       description: 'Custom corrugated boxes, packaging, and printing services from Print Gallery in Noida, India. Discuss your specifications with our team.',
       path: '/',
     },
+    '/about': {
+      title: 'About Print Gallery | Packaging & Printing in Noida',
+      description: 'Meet Print Gallery, a Noida packaging and printing partner focused on thoughtful design, dependable manufacturing, and quality.',
+      path,
+    },
+    '/contact': {
+      title: 'Contact Print Gallery | Packaging & Printing in Noida',
+      description: 'Contact Print Gallery in Noida for corrugated packaging, custom boxes, printing services, and project enquiries.',
+      path,
+    },
     '/privacy-policy': {
       title: 'Privacy Policy for Print Gallery Website | Print Gallery',
       description: 'Learn how Print Gallery handles information when you browse our website or prepare a printing and packaging enquiry.',

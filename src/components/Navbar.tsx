@@ -9,8 +9,8 @@ const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'Services', href: '/#services' },
   { label: 'Portfolio', href: '/#portfolio' },
-  { label: 'About Us', href: '/#about' },
-  { label: 'Contact', href: '/#contact' },
+  { label: 'About Us', href: '/about' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 export default function Navbar({ onOpenQuote }: NavbarProps) {
@@ -86,7 +86,7 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
             </a>
 
             <a
-              href="/#contact"
+              href="/contact"
               onClick={onOpenQuote}
               className="hidden lg:inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-xs sm:text-sm px-4 py-2.5 rounded-lg shadow-sm hover:shadow transition-all"
             >
@@ -99,7 +99,7 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
           {/* Mobile Toggle */}
           <div className="flex lg:hidden items-center gap-2 ml-auto">
             <a
-              href="/#contact"
+              href="/contact"
               onClick={onOpenQuote}
               className="inline-flex items-center gap-1.5 bg-amber-500 text-slate-950 font-bold text-[10px] sm:text-xs px-2.5 py-1.5 rounded-lg shadow-sm"
             >
@@ -152,7 +152,7 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
               </a>
 
               <a
-                href="/#contact"
+                href="/contact"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="flex items-center justify-center gap-2 text-sm font-bold text-slate-950 bg-amber-500 py-2.5 rounded-lg shadow-sm"
               >

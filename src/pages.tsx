@@ -3,6 +3,10 @@ import type { ReactNode } from 'react';
 import { ArrowRight, CheckCircle2, Home, Phone } from 'lucide-react';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
+import About from './components/About';
+import Contact from './components/Contact';
+import Team from './components/Team';
+import Values from './components/Values';
 import type { ServicePageData } from './serviceData';
 
 function PageShell({ children }: { children: ReactNode }) {
@@ -69,6 +73,80 @@ export function ServicePage({ service }: { service: ServicePageData }) {
           to discuss a suitable option.
         </p>
       </article>
+    </PageShell>
+  );
+}
+
+export function AboutPage() {
+  return (
+    <PageShell>
+      <section className="relative isolate overflow-hidden border-b border-slate-800 bg-slate-950 text-white">
+        <div className="absolute inset-0 -z-20" aria-hidden="true">
+          <img
+            src="/gallery.jpeg"
+            alt=""
+            className="h-full w-full object-cover opacity-35"
+            loading="eager"
+          />
+        </div>
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-slate-950 via-slate-950/90 to-slate-950/45" aria-hidden="true" />
+        <div className="container mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+          <Breadcrumbs current="About us" />
+          <div className="max-w-3xl">
+            <p className="text-xs font-bold uppercase tracking-[0.22em] text-amber-400">
+              Print Gallery · Noida, India
+            </p>
+            <h1 className="mt-4 text-4xl font-black leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+              Packaging built on precision, partnership and purpose
+            </h1>
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-slate-200 sm:text-lg">
+              We bring thoughtful design, dependable manufacturing and careful quality checks
+              together to help businesses protect and present their products.
+            </p>
+            <a className="btn-primary mt-8" href="/contact">
+              Meet your packaging partner <ArrowRight className="h-4 w-4" />
+            </a>
+          </div>
+        </div>
+      </section>
+      <About />
+      <Team />
+      <Values />
+      <section className="bg-amber-500 px-4 py-12 text-center text-slate-950 sm:px-6">
+        <h2 className="text-2xl font-black sm:text-3xl">Let’s make your next pack work harder.</h2>
+        <p className="mx-auto mt-3 max-w-2xl text-sm text-slate-800 sm:text-base">
+          Talk with our team about your product, packaging requirements and production plans.
+        </p>
+        <a
+          href="/contact"
+          className="mt-6 inline-flex items-center gap-2 rounded-lg bg-slate-950 px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-slate-800"
+        >
+          Contact our team <ArrowRight className="h-4 w-4" />
+        </a>
+      </section>
+    </PageShell>
+  );
+}
+
+export function ContactPage() {
+  return (
+    <PageShell>
+      <section className="border-b border-slate-200 bg-slate-950 px-4 py-14 text-white sm:px-6 sm:py-16">
+        <div className="container mx-auto max-w-6xl">
+          <Breadcrumbs current="Contact" />
+          <p className="text-xs font-bold uppercase tracking-[0.22em] text-amber-400">
+            We’re here to help
+          </p>
+          <h1 className="mt-3 max-w-3xl text-4xl font-black tracking-tight sm:text-5xl">
+            Let’s talk about your packaging
+          </h1>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
+            Share your requirements with our Noida team. We’ll help you explore the right
+            materials, format and next steps for your project.
+          </p>
+        </div>
+      </section>
+      <Contact />
     </PageShell>
   );
 }

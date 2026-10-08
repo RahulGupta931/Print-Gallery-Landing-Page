@@ -15,6 +15,8 @@ import HeroBanner from './components/HeroBanner';
 import FactoryGallery from './components/FactoryGallery';
 import BoxCalculator from './components/BoxCalculator';
 import {
+  AboutPage,
+  ContactPage,
   NotFoundPage,
   PolicyPage,
   ServicePage,
@@ -177,6 +179,8 @@ function App({ pathname }: { pathname: string }) {
   const service = servicePages.find((item) => path === `/${item.slug}`);
 
   if (service) return <ServicePage service={service} />;
+  if (path === '/about') return <AboutPage />;
+  if (path === '/contact') return <ContactPage />;
   if (path === '/privacy-policy') return <PolicyPage kind="privacy" />;
   if (path === '/terms') return <PolicyPage kind="terms" />;
   if (path === '/thank-you') return <ThankYouPage />;

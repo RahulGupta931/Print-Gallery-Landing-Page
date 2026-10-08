@@ -11,6 +11,8 @@ const { render, servicePages, getSeoMetadata, getStructuredData } = await import
 const paths = [
   '/',
   ...servicePages.map((service) => `/${service.slug}`),
+  '/about',
+  '/contact',
   '/privacy-policy',
   '/terms',
   '/thank-you',
